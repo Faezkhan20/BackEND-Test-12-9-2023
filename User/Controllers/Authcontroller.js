@@ -1,4 +1,5 @@
-import UserModals from "../Modals/User.Modals.js"
+import UserModals from "../Modals/User.Modals.js";
+
 
 
 export const Create = async (req, res) => {
@@ -30,9 +31,9 @@ export const Delete = async (req, res) => {
     try {
 
 
-        const { id } = req.body
-        if (!id) return res.status(401).json({ success: false, message: "Allowed only For Admin" })
-        await UserModals.findById(id)
+        const { deleteId } = req.body
+        if (!deleteId) return res.status(401).json({ success: false, message: "Allowed only For Admin" })
+        await UserModals.findById(deleteId)
 
         return res.status(200).json({ success: true, message: " deleted Successfully" })
 
